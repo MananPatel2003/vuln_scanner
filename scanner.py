@@ -41,23 +41,28 @@ def run_scan(target, output_file, scan_type):
     """
     # Define known vulnerabilities for detection
     vuln_db = {
-        "mysql": {
-            "port": 3306,
-            "risk": "High",
-            "description": "MySQL exposed publicly may allow unauthorized access if not secured."
-        },
-        "http": {
-            "port": 80,
-            "risk": "Medium",
-            "description": "HTTP on port 80 (no HTTPS) may leak sensitive data."
-        },
-        "vmware-auth": {
-            "port": 902,
-            "versions": ["1.10"],
-            "risk": "High",
-            "description": "VMware Authentication Daemon 1.10 has known vulnerabilities."
-        }
+    "mysql": {
+        "port": 3306,
+        "risk": "High",
+        "description": "MySQL exposed publicly may allow unauthorized access if not secured."
+    },
+    "http": {
+        "port": 80,
+        "risk": "Medium",
+        "description": "HTTP on port 80 (no HTTPS) may leak sensitive data."
+    },
+    "vmware-auth": {
+        "port": 902,
+        "versions": ["1.10"],
+        "risk": "High",
+        "description": "VMware Authentication Daemon 1.10 has known vulnerabilities."
+    },
+    "microsoft-ds": {
+        "port": 445,
+        "risk": "High",
+        "description": "SMB on port 445 may be vulnerable to exploits like EternalBlue if not patched."
     }
+}
     
     # Initialize results dictionary for reporting
     results = {}
