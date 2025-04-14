@@ -7,7 +7,7 @@ Run the installer, keep default settings, and finish setup
 No command needed here; do this manually first
 Step 2: Clone the GitHub repository to your computer
 This downloads the project files (scanner.py, README.md) to a folder
-git clone https://github.com/yourusername/vuln_scanner.git
+git clone  https://github.com/MananPatel2003/vuln_scanner
 cd vuln_scanner
 
 Step 3: Install Python 3
