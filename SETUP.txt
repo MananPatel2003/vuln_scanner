@@ -1,0 +1,52 @@
+SETUP.txt
+Guide to run the Automated Vulnerability Scanner on Windows
+Follow these commands in order to set up and scan a target system
+Step 1: Install Git to clone the repository
+Download Git for Windows from https://git-scm.com/download/win
+Run the installer, keep default settings, and finish setup
+No command needed here; do this manually first
+Step 2: Clone the GitHub repository to your computer
+This downloads the project files (scanner.py, README.md) to a folder
+git clone https://github.com/yourusername/vuln_scanner.git
+cd vuln_scanner
+
+Step 3: Install Python 3
+Download Python from https://www.python.org/downloads/
+Run the installer, check "Add Python to PATH", and install
+No command needed; do this manually if Python isn't installed
+Step 4: Verify Python is installed
+This checks if Python is ready and shows the version (e.g., 3.10)
+python --version
+
+Step 5: Install Nmap
+Download Nmap from https://nmap.org/download.html
+Run the installer, keep defaults, and finish
+No command needed; do this manually
+Step 6: Install the python-nmap library
+This adds the library needed to run Nmap scans from Python
+pip install python-nmap
+
+Step 7: Run a quick scan on localhost
+This scans your own machine for open ports (fast, no vulnerabilities checked)
+python scanner.py -t localhost
+
+Step 8: Run a deep scan on localhost
+This scans for ports, services, OS, and vulnerabilities (e.g., HTTP, MySQL)
+Run CMD as Administrator for OS detection
+python scanner.py -t localhost --scan-type deep
+
+Step 9: Check the report
+This opens the report file (e.g., scan_report_20250414_xxxxxx.txt) to see results
+Replace "scan_report_20250414_xxxxxx.txt" with the actual filename
+notepad scan_report_20250414_xxxxxx.txt
+
+Step 10: Scan another system (optional)
+Replace <target_ip> with the IP of a system you OWN or have PERMISSION to scan
+Example: python scanner.py -t 192.168.56.101 --scan-type deep
+WARNING: Only scan authorized systems; unauthorized scanning is illegal
+python scanner.py -t <target_ip> --scan-type deep
+
+Notes:
+- Always run CMD as Administrator for deep scans (needs admin for OS detection)
+- Reports are saved in the vuln_scanner folder with timestamps
+- See README.md for more details on usage and ethics
